@@ -1,7 +1,8 @@
 import 'package:coffee_app/constants/image_address.dart';
 import 'package:coffee_app/models/products.dart';
+import 'package:flutter/cupertino.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   final List<Product> _shop = [
     Product(
         name: 'Kenyan',
@@ -55,9 +56,11 @@ class Shop {
 
   void addToCart(Product item) {
     _cart.add(item);
+    notifyListeners();
   }
 
   void removeFromCart(Product item) {
     _cart.remove(item);
+    notifyListeners();
   }
 }

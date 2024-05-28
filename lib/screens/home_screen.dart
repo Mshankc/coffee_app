@@ -5,6 +5,10 @@ import 'package:coffee_app/constants/texts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expandable_text/expandable_text.dart';
+import 'package:provider/provider.dart';
+
+import '../components/product_tile.dart';
+import '../models/shop.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final products = context.watch<Shop>().shop;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -263,6 +268,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+            ),
+            Container(
+              color: Colors.white,
+              height: 400,
+              child: ListView.builder(
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    final product = products[index];
+                    return ProductTile(product: product);
+                  }),
+            ),
+            Container(
+              color: Colors.blue,
+              height: 300,
             ),
           ],
         ),

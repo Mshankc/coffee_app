@@ -1,12 +1,15 @@
+import 'package:coffee_app/models/shop.dart';
 import 'package:coffee_app/screens/about_screen.dart';
 import 'package:coffee_app/screens/Cart.dart';
 import 'package:coffee_app/screens/home_screen.dart';
 import 'package:coffee_app/screens/intro_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => Shop(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
