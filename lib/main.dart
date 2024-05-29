@@ -1,3 +1,4 @@
+import 'package:coffee_app/constants/colors.dart';
 import 'package:coffee_app/models/shop.dart';
 import 'package:coffee_app/screens/about_screen.dart';
 import 'package:coffee_app/screens/Cart.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
       routes: {

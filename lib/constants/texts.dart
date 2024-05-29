@@ -1,6 +1,8 @@
 class AppTexts {
   static const kCompanyName = 'Kat & Kin Coffee Roasters';
   static const kProductTypeName = 'Snacks and Beverages';
+  static const kStarText1 = 'Star Seller on ';
+  static const kStarText2 = 'minis';
   static const kRecommendedText = 'Recommended';
   static const kAppBarChatText = 'Chat';
   static const kInstagramId = 'katandkincoffee';

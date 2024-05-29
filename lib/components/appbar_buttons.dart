@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
 
@@ -26,13 +27,13 @@ class AppBarButtons extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.chat_outlined,
-                      size: 30,
+                      size: 25,
                       color: AppColors.actionColor,
                     ),
                     Text(
                       'Chat',
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                           fontSize: 20,
                           color: AppColors.actionColor),
                     ),

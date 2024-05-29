@@ -1,3 +1,4 @@
+import 'package:coffee_app/components/custom_gridview_tile.dart';
 import 'package:coffee_app/components/photo_tile.dart';
 import 'package:coffee_app/constants/colors.dart';
 import 'package:coffee_app/constants/image_address.dart';
@@ -6,6 +7,7 @@ import 'package:coffee_app/models/Photos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../components/appbar_buttons.dart';
 import '../components/media_container.dart';
@@ -23,6 +25,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _isExpanded = true;
   @override
   Widget build(BuildContext context) {
     final products = context.watch<Shop>().shop;
@@ -69,12 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 30, left: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30, left: 20),
                         child: Text(
                           AppTexts.kRecommendedText,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 30),
+                          style: GoogleFonts.darkerGrotesque(
+                              fontWeight: FontWeight.w700, fontSize: 40),
                         ),
                       ),
                       Padding(
@@ -111,6 +114,70 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                const Divider(
+                  color: AppColors.dividerColor,
+                ),
+                Text(
+                  '- OUR PRODUCTS - ',
+                  style: GoogleFonts.darkerGrotesque(
+                    color: AppColors.textColor2,
+                    fontSize: 28,
+                  ),
+                ),
+                const Divider(
+                  color: AppColors.dividerColor,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 10),
+                    child: Text(
+                      'All Products',
+                      style: GoogleFonts.darkerGrotesque(
+                          fontWeight: FontWeight.w700, fontSize: 40),
+                    ),
+                  ),
+                ),
+                ExpansionPanelList(
+                  expansionCallback: (int index, bool isExpanded) {
+                    setState(() {
+                      _isExpanded = !_isExpanded;
+                    });
+                  },
+                  children: [
+                    ExpansionPanel(
+                      backgroundColor: Colors.white,
+                      headerBuilder: (BuildContext context, bool isExpanded) {
+                        return ListTile(
+                          title: Text(
+                            'Roasted Coffee',
+                            style: GoogleFonts.darkerGrotesque(
+                                fontSize: 30, fontWeight: FontWeight.w600),
+                          ),
+                        );
+                      },
+                      body: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 5,
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 0.5 / 1),
+                          itemCount: products.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final product = products[index];
+                            return CustomGridviewTile(product: product);
+                          },
+                        ),
+                      ),
+                      isExpanded: _isExpanded,
+                    ),
+                  ],
+                )
               ],
             ),
           ),
