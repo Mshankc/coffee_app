@@ -16,36 +16,36 @@ class Shop extends ChangeNotifier {
         description:
             'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
         imageAddress: ImageAddress.cauvaryProduct),
-    Product(
-        name: 'Costa Rican',
-        price: 800,
-        description:
-            'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
-        imageAddress: ImageAddress.costaricaProduct),
-    Product(
-        name: 'Mansoon Malabari',
-        price: 1200,
-        description:
-            'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
-        imageAddress: ImageAddress.mansoonProduct),
+    // Product(
+    //     name: 'Costa Rican',
+    //     price: 800,
+    //     description:
+    //         'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
+    //     imageAddress: ImageAddress.costaricaProduct),
+    // Product(
+    //     name: 'Mansoon Malabari',
+    //     price: 1200,
+    //     description:
+    //         'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
+    //     imageAddress: ImageAddress.mansoonProduct),
     Product(
         name: 'Codes Natural',
         price: 600,
         description:
             'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
         imageAddress: ImageAddress.kodaiProduct),
-    Product(
-        name: 'Shield Tail',
-        price: 1000,
-        description:
-            'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
-        imageAddress: ImageAddress.sheildtailProduct),
-    Product(
-        name: 'South Indian',
-        price: 600,
-        description:
-            'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
-        imageAddress: ImageAddress.southindianProduct)
+    // Product(
+    //     name: 'Shield Tail',
+    //     price: 1000,
+    //     description:
+    //         'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
+    //     imageAddress: ImageAddress.sheildtailProduct),
+    // Product(
+    //     name: 'South Indian',
+    //     price: 600,
+    //     description:
+    //         'Kenyan coffee, which boasts aromas of walnuts and honey, with flavors of green apple, baker’s chocolate, and berries',
+    //     imageAddress: ImageAddress.southindianProduct),
   ];
 
   List<Product> _cart = [];
