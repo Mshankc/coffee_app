@@ -1,5 +1,7 @@
+import 'package:coffee_app/components/cart_tile.dart';
 import 'package:coffee_app/constants/colors.dart';
 import 'package:coffee_app/models/products.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +21,7 @@ class Cart extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.dividerColor,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Center(
           child: Text(
             'Cart',
@@ -29,49 +32,19 @@ class Cart extends StatelessWidget {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             child: ListView.builder(
                 itemCount: cart.length,
                 itemBuilder: (context, index) {
                   final item = cart[index];
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppColors.dividerColor),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                item.imageAddress,
-                                height: 120,
-                                width: 120,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Text(item.name),
-                            Text(
-                              'Whole Beans',
-                              style: TextStyle(),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return CartTile(
+                      imageAddress: item.imageAddress,
+                      price: item.price.toString(),
+                      name: item.name,
+                      onPressed: () => removeFromCart(context, item),
+                      onTap: () {});
                 }),
           ),
         ],
