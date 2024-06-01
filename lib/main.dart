@@ -3,7 +3,7 @@ import 'package:coffee_app/models/shop.dart';
 import 'package:coffee_app/screens/about_screen.dart';
 import 'package:coffee_app/screens/Cart.dart';
 import 'package:coffee_app/screens/home_screen.dart';
-import 'package:coffee_app/screens/intro_screen.dart';
+import 'package:coffee_app/screens/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: const HomeScreen(),
+      initialRoute: NavigationScreen.id,
       debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.id: (context) => const HomeScreen(),
         AboutScreen.id: (context) => const AboutScreen(),
         Cart.id: (context) => const Cart(),
-        IntroScreen.id: (context) => const IntroScreen(),
+        NavigationScreen.id: (context) => const NavigationScreen(),
       },
     );
   }

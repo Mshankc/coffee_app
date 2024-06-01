@@ -1,11 +1,18 @@
 import 'package:coffee_app/constants/colors.dart';
 import 'package:coffee_app/models/products.dart';
+import 'package:coffee_app/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProductTile extends StatelessWidget {
   const ProductTile({super.key, required this.product});
   final Product product;
+
+  void addToCart(BuildContext context) {
+    context.read<Shop>().addToCart(product);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -77,7 +84,7 @@ class ProductTile extends StatelessWidget {
                 child: Center(
                   heightFactor: 2,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => addToCart(context),
                     child: const Text(
                       'Add to Cart',
                       style: TextStyle(

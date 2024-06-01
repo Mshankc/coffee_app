@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../components/appbar_buttons.dart';
 import '../components/media_container.dart';
-import '../components/positioned_container.dart';
-import '../components/positioned_logo_container.dart';
+import '../components/home_container.dart';
+import '../components/logo_container.dart';
 import '../components/product_tile.dart';
 import '../models/shop.dart';
 

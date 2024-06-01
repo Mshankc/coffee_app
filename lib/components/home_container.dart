@@ -83,7 +83,7 @@ class HomeContainer extends StatelessWidget {
             ),
           ),
           Flexible(
-            flex: 2,
+            flex: 5,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ExpandableText(
@@ -102,12 +102,9 @@ class HomeContainer extends StatelessWidget {
             indent: 40,
             endIndent: 40,
           ),
-          const SizedBox(
-            height: 10,
-          ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: GestureDetector(
                 onTap: () {},
                 child: Row(
@@ -131,20 +128,24 @@ class HomeContainer extends StatelessWidget {
                       Icons.arrow_forward_ios,
                       color: AppColors.accentColor,
                       size: 14,
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 15.0,
-            ),
-            child: Text(
-              'Delivery fee will apply',
-              style: GoogleFonts.darkerGrotesque(
-                  color: AppColors.textColor2, fontSize: 16),
+          Flexible(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 15.0,
+                top: 5,
+              ),
+              child: Text(
+                'Delivery fee will apply',
+                style: GoogleFonts.darkerGrotesque(
+                    color: AppColors.textColor2, fontSize: 16),
+              ),
             ),
           ),
         ],

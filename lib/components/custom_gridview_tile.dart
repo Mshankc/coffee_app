@@ -45,7 +45,7 @@ class CustomGridviewTile extends StatelessWidget {
                   child: ClipPath(
                     clipper: CircularBottomRightClipper(),
                     child: Container(
-                      color: Colors.cyan,
+                      color: AppColors.accentColor,
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Recommended',
