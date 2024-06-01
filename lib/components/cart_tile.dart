@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
@@ -15,7 +16,7 @@ class CartTile extends StatelessWidget {
   final String imageAddress;
   final String price;
   final String name;
-  VoidCallback onPressed, onTap;
+  VoidCallback? onPressed, onTap;
 
   @override
   Widget build(BuildContext context) {

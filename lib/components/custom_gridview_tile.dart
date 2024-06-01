@@ -1,8 +1,10 @@
 import 'package:coffee_app/models/products.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../constants/colors.dart';
 import '../models/circular_bottomright_clipper.dart';
+import '../models/shop.dart';
 
 class CustomGridviewTile extends StatelessWidget {
   const CustomGridviewTile({
@@ -13,6 +15,9 @@ class CustomGridviewTile extends StatelessWidget {
 
   final Product product;
   final bool isRecommended;
+  void addToCart(BuildContext context) {
+    context.read<Shop>().addToCart(product);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +104,7 @@ class CustomGridviewTile extends StatelessWidget {
                   border: Border.all(color: AppColors.dividerColor),
                 ),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () => addToCart(context),
                   child: const Center(
                     child: Text(
                       'Add to Cart',

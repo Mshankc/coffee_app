@@ -9,11 +9,18 @@ import 'package:provider/provider.dart';
 
 import '../models/shop.dart';
 
-class Cart extends StatelessWidget {
+class Cart extends StatefulWidget {
   const Cart({super.key});
   static const id = 'Cart';
 
-  void removeFromCart(BuildContext context, Product product) {}
+  @override
+  State<Cart> createState() => _CartState();
+}
+
+class _CartState extends State<Cart> {
+  void removeFromCart(BuildContext context, Product product) {
+    context.read<Shop>().removeFromCart(product);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +42,25 @@ class Cart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            child: ListView.builder(
-                itemCount: cart.length,
-                itemBuilder: (context, index) {
-                  final item = cart[index];
-                  return CartTile(
-                      imageAddress: item.imageAddress,
-                      price: item.price.toString(),
-                      name: item.name,
-                      onPressed: () => removeFromCart(context, item),
-                      onTap: () {});
-                }),
+            child: cart.isEmpty
+                ? const Center(
+                    child: Text('Your cart is empty'),
+                  )
+                : ListView.builder(
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      final item = cart[index];
+                      return CartTile(
+                          imageAddress: item.imageAddress,
+                          price: item.price.toString(),
+                          name: item.name,
+                          onPressed: () {
+                            setState(() {
+                              removeFromCart(context, item);
+                            });
+                          },
+                          onTap: () {});
+                    }),
           ),
         ],
       ),
